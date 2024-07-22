@@ -1,1 +1,13 @@
-node_modules
+# Ignorar archivos compilados
+*.class
+*.o
+*.so
+*.dll
+
+# Ignorar directorios de dependencias
+node_modules/
+# Ignorar archivos de logs
+*.log
+# Ignorar archivos de entorno
+.env
+
