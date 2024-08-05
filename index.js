@@ -5,6 +5,7 @@ import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
 // archivos creaos por mi utilizar ubicacion dde la carpeta mas .js
 import usuariosRoutes from './routes/usuarioRoutes.js';
+import propiedadRoutes from './routes/propiedadRoutes.js';
 import db from './config/db.js'
 
 // llamamos a la funcion 
@@ -21,7 +22,7 @@ try {
     await db.authenticate();
     // va a sincronizar las tablas en caso de que no hay las crea 
     db.sync();
-    console.log('Coneccion correcta a la base de datos');
+    // console.log('Coneccion correcta a la base de datos');
 } catch (error) {
     console.log(error);
 }
@@ -35,6 +36,7 @@ app.use(express.static('public'));
 // .get -> busca la ruta especifica
 // .use -> todas las ruta que inicien con el caracter '/'
 app.use('/auth', usuariosRoutes);
+app.use('/', propiedadRoutes);
 // 
 // app.get('/', function(req, res){
 //     // req -> es la infomracion que envio desde el navegador
@@ -47,7 +49,7 @@ app.use('/auth', usuariosRoutes);
 // });
 ///
 /// Definir un puerto y arrancar el proyecto
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; 
 app.listen(port, ()=>{
-    console.log(`El servidor esta funcionando en: ${port}`);
+    // console.log(`El servidor esta funcionando en: ${port}`);
 });

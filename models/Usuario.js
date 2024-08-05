@@ -23,4 +23,8 @@ const Usuario = db.define('usuarios', {
     }
 });
 
+// Creacion de prototipos o funciones a un objeto 
+Usuario.prototype.verificarPassword = function (password){
+    return bcrypt.compareSync(password, this.password);
+}
 export default Usuario
