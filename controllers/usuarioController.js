@@ -50,6 +50,8 @@ const autenticar = async (req, res) => {
     // Almacenar cookie
     return res.cookie('_token', token,{
         httOnly: true,
+        // tiempo de expiracion del token en milisegundos
+        // expire: 9000
         // habiliatra para paginas https
         // secure: true
     }).redirect('/mis_propiedades');

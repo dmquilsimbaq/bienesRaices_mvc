@@ -1,11 +1,12 @@
 import { exit } from 'node:process';
 import categorias from './categorias.js';
 import precios from './precios.js';
+import usuarios from './usuarios.js';
 // sin relaciones
 // import Categoria from '../models/Categoria.js';
 // import Precio from '../models/Precio.js';
 // relaciones
-import { Categoria, Precio } from '../models/index.js';
+import { Categoria, Precio, Usuario } from '../models/index.js';
 import db from '../config/db.js';
 
 const importarDatos = async() => {
@@ -23,7 +24,8 @@ const importarDatos = async() => {
         // console.log('Importacion de precios correcto');
         await Promise.all([
             Categoria.bulkCreate(categorias),
-            Precio.bulkCreate(precios)
+            Precio.bulkCreate(precios),
+            Usuario.bulkCreate(usuarios)
         ]);
         // Termina el procesos SIN erroes 0 o vacio
         exit();
